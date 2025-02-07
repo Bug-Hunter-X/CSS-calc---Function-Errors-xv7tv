@@ -1,0 +1,13 @@
+/* bug.css - Incorrect use of calc() */
+.box {
+  width: calc(50% + 100); /* Missing units */
+  height: calc(100px + 50%); /* Order of operations may be unexpected */
+  margin: calc(calc(20px + 10%) + 5px); /* Overly nested calc expressions */
+}
+
+/* bugSolution.css - Correct use of calc() */
+.box {
+  width: calc(50% + 100px); /* Added missing units */
+  height: calc((100px + 50%)); /* Added parenthesis for clarity */
+  margin: calc(20px + 10% + 5px); /* Simplified nested expression */
+}
